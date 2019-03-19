@@ -7,12 +7,7 @@ def main():
     augment = eval(raw_input("Enter the minimum number of people per year that come randomly: "))
     target = eval(raw_input("Enter target population: "))
 
-
-    res = nb_year(1500,5,100,5000)
-    if res != 15:
-        print "Wrong"
-    else:
-        print "Correct"
+    print nb_year(start, percent, augment, target)
 
 def nb_year(p0, percent, aug, p):
     yrs = 0
