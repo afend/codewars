@@ -14,6 +14,9 @@ SELECT s.id, s.name
 FROM sales AS s
 WHERE price >= 98.00 AND s.id IN (SELECT d.id FROM departments AS d) 
 
+SELECT id, name
+FROM departments
+WHERE id IN (SELECT department_id FROM sales WHERE (price) > 98.00);
 
 
 -- departments table schema
