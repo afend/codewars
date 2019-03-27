@@ -10,10 +10,6 @@ WHERE EXISTS
 -- For this challenge you need to create a SELECT statement, this SELECT statement will use an IN to check whether a department has had a sale with a price over 98.00 dollars.
 
 -- Create your SELECT statement here
-SELECT s.id, s.name
-FROM sales AS s
-WHERE price >= 98.00 AND s.id IN (SELECT d.id FROM departments AS d) 
-
 SELECT id, name
 FROM departments
 WHERE id IN (SELECT department_id FROM sales WHERE (price) > 98.00);
