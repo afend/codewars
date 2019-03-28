@@ -1,4 +1,5 @@
 #!/usr/bin/python
+from itertools import combinations
 
 def main():
     '''
@@ -33,18 +34,14 @@ def main():
     xs = [100, 76, 56, 44, 89, 73, 68, 56, 64, 123, 2333, 144, 50, 132, 123, 34, 89]
     print(choose_best_sum(230, 4, xs))  # should print 230
 
-
 def choose_best_sum(t, k, ls):
-    import itertools
-    permutations = list(itertools.permutations(ls, k))
-    best_sum = 0
-
-    for perm in permutations:
-        perm_sum = sum(perm)
-        if perm_sum > best_sum and perm_sum <= t:
-            best_sum = sum(perm)
-
-    return best_sum
+    dist = 0
+    for c in combinations(ls, k):
+        if sum(c) <= t:
+            dist = max(dist, sum(c))
+    if dist == 0:
+        return None
+    return dist
 
 
 if __name__ == "__main__":
